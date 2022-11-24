@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ICustomerService {
-    Customer saveCustomer(Customer customer);
+    Customer saveCustomer(Customer customer) throws CustomerExistsAlready;
 
     List<Customer> getAllCustomer();
 
