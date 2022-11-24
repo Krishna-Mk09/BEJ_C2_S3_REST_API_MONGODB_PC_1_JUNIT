@@ -10,6 +10,7 @@ package com.niit.jdp.BEJ_C2_S3_REST_API_MONGODB_PC_1.controller;
 
 import com.niit.jdp.BEJ_C2_S3_REST_API_MONGODB_PC_1.domain.Customer;
 import com.niit.jdp.BEJ_C2_S3_REST_API_MONGODB_PC_1.exception.CustomerAlreadyExists;
+import com.niit.jdp.BEJ_C2_S3_REST_API_MONGODB_PC_1.exception.CustomerNotExists;
 import com.niit.jdp.BEJ_C2_S3_REST_API_MONGODB_PC_1.service.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -58,9 +59,14 @@ public class CustomerController {
     }
 
     @GetMapping("/deleteCustomerById/{customerId}")
-    public ResponseEntity<?> deleteCustomerByCustomerIdFunction(@PathVariable int customerId) {
-        return new ResponseEntity<>(icustomerService.deleteCustomerById(customerId), HttpStatus.CREATED);
-
+    public ResponseEntity<?> deleteCustomerByCustomerIdFunction(@PathVariable int customerId) throws CustomerNotExists {
+        try {
+            return new ResponseEntity<>(icustomerService.deleteCustomerById(customerId), HttpStatus.CREATED);
+        } catch (CustomerNotExists e) {
+            throw new CustomerNotExists();
+        } catch (Exception e) {
+            return new ResponseEntity<>("Server Error!!!Try after Sometime", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
 

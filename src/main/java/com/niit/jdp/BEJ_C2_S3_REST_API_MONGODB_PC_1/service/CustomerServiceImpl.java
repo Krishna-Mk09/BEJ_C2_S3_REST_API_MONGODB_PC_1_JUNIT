@@ -10,6 +10,7 @@ package com.niit.jdp.BEJ_C2_S3_REST_API_MONGODB_PC_1.service;
 
 import com.niit.jdp.BEJ_C2_S3_REST_API_MONGODB_PC_1.domain.Customer;
 import com.niit.jdp.BEJ_C2_S3_REST_API_MONGODB_PC_1.exception.CustomerAlreadyExists;
+import com.niit.jdp.BEJ_C2_S3_REST_API_MONGODB_PC_1.exception.CustomerNotExists;
 import com.niit.jdp.BEJ_C2_S3_REST_API_MONGODB_PC_1.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,8 +52,15 @@ public class CustomerServiceImpl implements ICustomerService {
     }
 
     @Override
-    public boolean deleteCustomerById(int customerId) {
+    public boolean deleteCustomerById(int customerId) throws CustomerNotExists {
+        if (customerRepository.findById(customerId).isEmpty()) {
+            throw new CustomerNotExists();
+        }
         customerRepository.deleteById(customerId);
         return true;
     }
 }
+
+
+
+
