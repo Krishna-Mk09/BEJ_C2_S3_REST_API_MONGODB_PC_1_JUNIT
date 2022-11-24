@@ -15,4 +15,10 @@ public class Product {
 
     public Product() {
     }
+
+    public Product(int productId, String productName, String description) {
+        this.productId = productId;
+        this.productName = productName;
+        this.description = description;
+    }
 }
