@@ -87,7 +87,7 @@ public class CustomerController {
      * @param customerId The customerId of the customer to be deleted.
      * @return ResponseEntity<?>
      */
-    @GetMapping("/deleteCustomerById/{customerId}")
+    @DeleteMapping("/deleteCustomerById/{customerId}")
     public ResponseEntity<?> deleteCustomerByCustomerIdFunction(@PathVariable int customerId) throws CustomerNotExists {
         try {
             return new ResponseEntity<>(icustomerService.deleteCustomerById(customerId), HttpStatus.CREATED);
