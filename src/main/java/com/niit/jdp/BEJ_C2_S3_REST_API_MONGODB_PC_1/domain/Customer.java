@@ -23,4 +23,36 @@ public class Customer {
         PhoneNumber = phoneNumber;
         this.customerProduct = customerProduct;
     }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public long getPhoneNumber() {
+        return PhoneNumber;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        PhoneNumber = phoneNumber;
+    }
+
+    public Product getCustomerProduct() {
+        return customerProduct;
+    }
+
+    public void setCustomerProduct(Product customerProduct) {
+        this.customerProduct = customerProduct;
+    }
 }
