@@ -28,6 +28,12 @@ public class CustomerController {
         this.icustomerService = icustomerService;
     }
 
+    /**
+     * The function is a POST request which takes a Customer object as a request body and returns a ResponseEntity object
+     *
+     * @param customer The object that is to be saved in the database.
+     * @return ResponseEntity<?>
+     */
     @PostMapping("/saveCustomer")
     public ResponseEntity<?> saveFunction(@RequestBody Customer customer) throws CustomerAlreadyExists {
         try {
@@ -41,23 +47,46 @@ public class CustomerController {
     }
 
 
+    /**
+     * It fetches all the customers from the database.
+     *
+     * @return A list of all customers
+     */
     @GetMapping("/fetchAllCustomer")
     public ResponseEntity<?> fetchAllCustomerFunction() {
         return new ResponseEntity<>(icustomerService.getAllCustomer(), HttpStatus.CREATED);
     }
 
+    /**
+     * This function is used to fetch all the customers by their id
+     *
+     * @param customerId This is the path variable that will be used to fetch the customer details.
+     * @return ResponseEntity<?>
+     */
     @GetMapping("/fetchCustomerById/{customerId}")
     public ResponseEntity<?> fetchAllCustomerByNameFunction(@PathVariable int customerId) {
         return new ResponseEntity<>(icustomerService.getAllCustomersById(customerId), HttpStatus.CREATED);
 
     }
 
+    /**
+     * This function fetches all the customers who have bought a particular product
+     *
+     * @param productName The name of the product that you want to search for.
+     * @return A list of customers who have purchased a product with the given name.
+     */
     @GetMapping("/fetchCustomerByProductName/{productName}")
     public ResponseEntity<?> fetchAllCustomerByProductNameFunction(@PathVariable String productName) {
         return new ResponseEntity<>(icustomerService.findCustomerProductName(productName), HttpStatus.CREATED);
 
     }
 
+    /**
+     * This function is used to delete a customer by customerId
+     *
+     * @param customerId The customerId of the customer to be deleted.
+     * @return ResponseEntity<?>
+     */
     @GetMapping("/deleteCustomerById/{customerId}")
     public ResponseEntity<?> deleteCustomerByCustomerIdFunction(@PathVariable int customerId) throws CustomerNotExists {
         try {
