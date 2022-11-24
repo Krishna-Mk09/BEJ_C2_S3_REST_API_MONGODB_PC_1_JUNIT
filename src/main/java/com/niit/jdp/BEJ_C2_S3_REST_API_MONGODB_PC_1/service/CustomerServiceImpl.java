@@ -42,7 +42,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
 
     @Override
-    public List<Customer> findAllCustomerProductName(String productName) {
+    public List<Customer> findCustomerProductName(String productName) {
         return customerRepository.findAllCustomerProductName(productName);
     }
 

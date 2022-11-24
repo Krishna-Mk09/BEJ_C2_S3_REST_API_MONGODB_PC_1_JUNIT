@@ -12,7 +12,7 @@ public interface ICustomerService {
 
     Optional<Customer> getAllCustomersById(int customerId);
 
-    List<Customer> findAllCustomerProductName(String productName);
+    List<Customer> findCustomerProductName(String productName);
 
     boolean deleteCustomerById(int customerId);
 
