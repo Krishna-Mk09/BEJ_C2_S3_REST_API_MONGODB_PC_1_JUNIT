@@ -8,6 +8,9 @@
 
 package com.niit.jdp.BEJ_C2_S3_REST_API_MONGODB_PC_1.exception;
 
-public class CustomerAlreadyExists extends Exception {
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
+@ResponseStatus(code = HttpStatus.CONFLICT, reason = "Customer with Specific Id already Exits,TryOtherId")
+public class CustomerAlreadyExists extends Exception {
 }
