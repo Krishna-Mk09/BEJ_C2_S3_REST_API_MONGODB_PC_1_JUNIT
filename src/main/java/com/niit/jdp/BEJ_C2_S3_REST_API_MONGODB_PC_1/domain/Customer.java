@@ -12,6 +12,8 @@ public class Customer {
     private int customerId;
     private String customerName;
     private long PhoneNumber;
-    private String customerProduct;
-    private String productType;
+    private Product customerProduct;
+
+    public Customer() {
+    }
 }
