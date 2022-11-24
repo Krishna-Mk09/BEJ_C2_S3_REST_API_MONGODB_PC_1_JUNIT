@@ -12,4 +12,5 @@ public interface CustomerRepository extends MongoRepository<Customer, Integer> {
     @Query("{'customerProduct.productName':{$in:[?0]}}")
     List<Customer> findAllCustomerProductName(String productName);
 
+
 }

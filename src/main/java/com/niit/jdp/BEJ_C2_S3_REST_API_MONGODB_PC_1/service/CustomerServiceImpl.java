@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CustomerServiceImpl implements ICustomerService {
@@ -26,26 +27,28 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public Customer saveCustomer(Customer customer) {
-        return null;
+        return customerRepository.save(customer);
     }
 
     @Override
     public List<Customer> getAllCustomer() {
-        return null;
+        return customerRepository.findAll();
     }
 
     @Override
-    public List<Customer> getAllCustomersByName(String customerName) {
-        return null;
+    public Optional<Customer> getAllCustomersById(int customerId) {
+        return customerRepository.findById(customerId);
     }
+
 
     @Override
     public List<Customer> findAllCustomerProductName(String productName) {
-        return null;
+        return customerRepository.findAllCustomerProductName(productName);
     }
 
     @Override
     public boolean deleteCustomerById(int customerId) {
-        return false;
+        customerRepository.deleteById(customerId);
+        return true;
     }
 }
