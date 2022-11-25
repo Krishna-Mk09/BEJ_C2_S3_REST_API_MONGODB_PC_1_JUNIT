@@ -42,7 +42,6 @@ public class CustomerServiceImpl implements ICustomerService {
         }
         return customerRepository.save(customer);
     }
-
     /**
      * > The function returns a list of all customers from the database
      *
@@ -64,8 +63,6 @@ public class CustomerServiceImpl implements ICustomerService {
     public Optional<Customer> getAllCustomersById(int customerId) {
         return customerRepository.findById(customerId);
     }
-
-
     /**
      * > Find all customers who have purchased a product with the given name
      *
@@ -76,10 +73,7 @@ public class CustomerServiceImpl implements ICustomerService {
     public List<Customer> findCustomerProductName(String productName) {
         return customerRepository.findAllCustomerProductName(productName);
     }
-
-    // The above code is deleting a customer by id.
-
-    /**
+        /**
      * If the customer exists, delete it. If it doesn't exist, throw an exception
      *
      * @param customerId The id of the customer to be deleted.
