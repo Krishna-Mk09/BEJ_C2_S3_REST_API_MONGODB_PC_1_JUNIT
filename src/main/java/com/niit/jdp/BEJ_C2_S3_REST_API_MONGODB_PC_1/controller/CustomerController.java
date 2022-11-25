@@ -43,9 +43,7 @@ public class CustomerController {
         } catch (Exception e) {
             return new ResponseEntity<>("Server Error!!!Try after Sometime", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
     }
-
 
     /**
      * It fetches all the customers from the database.

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+// A repository interface that extends MongoRepository.
 @Repository
 public interface CustomerRepository extends MongoRepository<Customer, Integer> {
     @Query("{'customerProduct.productName':{$in:[?0]}}")
